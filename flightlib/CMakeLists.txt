@@ -43,6 +43,11 @@ endif()
 message(STATUS "Eigen3 include dir: ${EIGEN3_INCLUDE_DIR}")
 
 # Including dependencies 
+# Set the path to the Pybind11 source directory within your project
+set(PYBIND11_DIR ${CMAKE_SOURCE_DIR}/externals/pybind11-src)
+
+# Include the Pybind11 CMakeLists.txt from the external source directory
+add_subdirectory(${PYBIND11_DIR})
 include(cmake/pybind11.cmake)
 include(cmake/yaml.cmake)
 
