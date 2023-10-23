@@ -8,7 +8,8 @@ sudo apt-get install python3-vcstool
 ```
 download this repository on you computer in a folder named `flightmare_src`
 ```
-git clone ...
+git clone git@github.com:giovisca-github/flightmare.git
+
 ```
 on the same folder run:
 ```
