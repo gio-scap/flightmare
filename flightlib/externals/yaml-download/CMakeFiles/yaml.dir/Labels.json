@@ -1,0 +1,46 @@
+{
+	"sources" : 
+	[
+		{
+			"file" : "/root/catkin_ws/src/flightmare/flightlib/externals/yaml-download/CMakeFiles/yaml"
+		},
+		{
+			"file" : "/root/catkin_ws/src/flightmare/flightlib/externals/yaml-download/CMakeFiles/yaml.rule"
+		},
+		{
+			"file" : "/root/catkin_ws/src/flightmare/flightlib/externals/yaml-download/CMakeFiles/yaml-complete.rule"
+		},
+		{
+			"file" : "/root/catkin_ws/src/flightmare/flightlib/externals/yaml-download/yaml-prefix/src/yaml-stamp/yaml-install.rule"
+		},
+		{
+			"file" : "/root/catkin_ws/src/flightmare/flightlib/externals/yaml-download/yaml-prefix/src/yaml-stamp/yaml-mkdir.rule"
+		},
+		{
+			"file" : "/root/catkin_ws/src/flightmare/flightlib/externals/yaml-download/yaml-prefix/src/yaml-stamp/yaml-download.rule"
+		},
+		{
+			"file" : "/root/catkin_ws/src/flightmare/flightlib/externals/yaml-download/yaml-prefix/src/yaml-stamp/yaml-patch.rule"
+		},
+		{
+			"file" : "/root/catkin_ws/src/flightmare/flightlib/externals/yaml-download/yaml-prefix/src/yaml-stamp/yaml-configure.rule"
+		},
+		{
+			"file" : "/root/catkin_ws/src/flightmare/flightlib/externals/yaml-download/yaml-prefix/src/yaml-stamp/yaml-build.rule"
+		},
+		{
+			"file" : "/root/catkin_ws/src/flightmare/flightlib/externals/yaml-download/yaml-prefix/src/yaml-stamp/yaml-test.rule"
+		},
+		{
+			"file" : "/root/catkin_ws/src/flightmare/flightlib/externals/yaml-download/yaml-prefix/src/yaml-stamp/yaml-skip-update.rule"
+		}
+	],
+	"target" : 
+	{
+		"labels" : 
+		[
+			"yaml"
+		],
+		"name" : "yaml"
+	}
+}
