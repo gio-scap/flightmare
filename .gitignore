@@ -19,6 +19,6 @@ _build/
 .sass-cache
 _posts
 _site
-externals/*
+flightros/externals/*
 *.jpg
 *.png
