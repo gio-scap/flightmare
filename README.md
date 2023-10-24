@@ -37,3 +37,4 @@ place on the flightmare/flightrender folder
 build the catkin_ws 
  source the `~/catkin_ws/devel/setup.bash`
 
+aaaas
