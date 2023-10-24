@@ -37,4 +37,4 @@ place on the flightmare/flightrender folder
 build the catkin_ws 
  source the `~/catkin_ws/devel/setup.bash`
 
-aaaas
+Install Unity Binary from https://github.com/uzh-rpg/flightmare/releases
