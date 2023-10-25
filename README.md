@@ -19,7 +19,7 @@ in this way all the packages are downloaded on the host machine
 
 build the docker images 
 ```Docker
-docekr buil -t flightmare_simulator ./flightmare
+docker build -t flightmare_simulator ./flightmare
 ```
 run the image:
 ```
