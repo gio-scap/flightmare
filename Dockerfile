@@ -5,6 +5,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     lsb-release \
     build-essential \
     python3 python3-dev python3-pip \
+    python3-venv\
     cmake \
     ros-melodic-rqt-gui\
     ca-certificates \
@@ -41,8 +42,14 @@ RUN apt-get update && apt-get install -y \
 RUN apt-get update && apt-get install -y python-pip \
     python-catkin-tools\
     && pip install catkin-tools\
-    && pip install protobuf==3.0.0\
     && pip3 install catkin_pkg
+
+
+## make python virtual env
+WORKDIR /root
+RUN  python3 -m venv RL\
+    && source RL/bin/activate\
+    && pip install protobuf==3.6.
 
 # Create a catkin workspace
 RUN mkdir -p ~/catkin_ws/src
@@ -53,15 +60,6 @@ RUN apt-get update && apt-get install -y \
     && pip3 install setuptools_scm \ 
     && pip3 install setuptools
 
-# download all dependencies 
-# WORKDIR /root/catkin_ws/src
-# RUN git clone https://github.com/catkin/catkin_simple.git /root/catkin_ws/src/catkin_simple
-# RUN git clone https://github.com/ethz-asl/eigen_catkin.git /root/catkin_ws/src/eigen_catkin
-# RUN git clone https://github.com/ethz-asl/mav_comm.git /root/catkin_ws/src/mav_comm
-# RUN git clone https://github.com/ethz-asl/rotors_simulator.git /root/catkin_ws/src/rotors_simulator
-# RUN git clone https://github.com/uzh-rpg/rpg_quadrotor_common.git /root/catkin_ws/src/rpg_quadrotor_common
-# RUN git clone https://github.com/uzh-rpg/rpg_single_board_io.git /root/catkin_ws/src/rpg_single_board_io
-# RUN git clone https://github.com/uzh-rpg/rpg_quadrotor_control.git /root/catkin_ws/src/rpg_quadrotor_control
 
 
 # RUN update-alternatives --install /usr/bin/python python /usr/bin/python3 1
@@ -77,7 +75,8 @@ RUN apt-get update && apt-get install -y \
 
 # source 
 WORKDIR /root/catkin_ws
-RUN catkin build
+RUN catkin build \ 
+    && ls
 RUN echo "source /root/catkin_ws/devel/setup.bash" >> ~/.bashrc 
 RUN echo "export FLIGHTMARE_PATH=~/catkin_ws/src/flightmare" >> ~/.bashrc
 CMD ["/bin/bash"]
