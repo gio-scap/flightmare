@@ -45,11 +45,14 @@ RUN apt-get update && apt-get install -y python-pip \
     && pip3 install catkin_pkg
 
 
-## make python virtual env
-WORKDIR /root
-RUN  python3 -m venv RL\
-    && source RL/bin/activate\
-    && pip install protobuf==3.6.
+# Create a virtual environment and activate it
+
+RUN python3 -m venv /root/RL 
+SHELL ["/bin/bash", "-c"]
+RUN source /root/RL/bin/activate/ \
+    && pip3 install protobuf==3.6.1\
+    setuptools
+
 
 # Create a catkin workspace
 RUN mkdir -p ~/catkin_ws/src

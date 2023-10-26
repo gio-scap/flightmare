@@ -2,13 +2,12 @@
 copy of flightmare files corrected for installing it as a docker container
 
 
-```
+
 download this repository on you computer in a folder named `flightmare_src`
 ```
 git clone git@github.com:giovisca-github/flightmare.git
-
 ```
-build the docker images 
+go to the folder you downloaded build the docker images 
 ```Docker
 docker build -t flightmare_simulator ./flightmare
 ```
@@ -20,11 +19,11 @@ docker run -it -v $(pwd)/flightmare:/root/catkin_ws/src/flightmare --rm --runtim
 
 on the docker container run:
 ```bash
-cd src
+    cd src
     vcs-import < flightmare/flightros/dependencies.yaml
 
 ```
-at this point you should have all the dependencies insta
+at this point you should have all the dependencies installed inside the folder `catkin_ws`
 open a new terminal by running on the host:
 ```
 docker exec -it flightmare_container bash 
