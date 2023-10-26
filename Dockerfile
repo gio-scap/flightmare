@@ -16,8 +16,6 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     git\
     && rm -rf /var/lib/apt/lists/*
 
-# RUN install eigen \
-#     apt-get install libeigen3-dev
 
 # Install Gazebo
 RUN apt-get update && apt-get install -y \
@@ -36,22 +34,26 @@ RUN apt-get update && apt-get install -y \
     ros-melodic-gazebo-plugins\
     && rm -rf /var/lib/apt/lists/*
 
-# Make sure protobuf compiler version is 3.0.0 (ROS Melodic comes with this version)
 
-# Install catkin tools
+# # Install catkin tools
 RUN apt-get update && apt-get install -y python-pip \
     python-catkin-tools\
     && pip install catkin-tools\
-    && pip3 install catkin_pkg
+    && pip3 install catkin_pkg\
 
 
-# Create a virtual environment and activate it
+    # Create a virtual environment and activate it, install dependencies 
 
-RUN python3 -m venv /root/RL 
-SHELL ["/bin/bash", "-c"]
-RUN source /root/RL/bin/activate/ \
-    && pip3 install protobuf==3.6.1\
-    setuptools
+    RUN python3 -m venv /root/RL \
+    && /root/RL/bin/pip install --upgrade pip\
+    && /root/RL/bin/pip install wheel \
+    && /root/RL/bin/pip install  protobuf==3.6.1\
+    setuptools\
+    tensorflow==1.14.0
+RUN /root/RL/bin/pip install scikit-build\
+    setuptools_scm \ 
+    && root/RL/bin/pip install setuptools\
+    && /root/RL/bin/pip install  opencv-python==4.5.5.64
 
 
 # Create a catkin workspace
@@ -62,15 +64,6 @@ RUN /opt/ros/melodic/env.sh catkin config --init --mkdirs --extend /opt/ros/melo
 RUN apt-get update && apt-get install -y \
     && pip3 install setuptools_scm \ 
     && pip3 install setuptools
-
-
-
-# RUN update-alternatives --install /usr/bin/python python /usr/bin/python3 1
-# #RUN pip install torch==1.7.1+cpu torchvision==0.8.2+cpu torchaudio==0.7.2 -f https://download.pytorch.org/whl/cpu/torch_stable.html
-# RUN pip install tensorflow-gpu==1.12 scikit-build
-# #RUN opencv-python==4.5.5.64\ 3 install opencv-python==4.5.5.64
-
-
 # # build the environment
 # RUN cd flightlib && pip install . \
 #     cd ~/catkin_ws && catkin build \
@@ -78,8 +71,8 @@ RUN apt-get update && apt-get install -y \
 
 # source 
 WORKDIR /root/catkin_ws
-RUN catkin build \ 
-    && ls
+RUN catkin build
 RUN echo "source /root/catkin_ws/devel/setup.bash" >> ~/.bashrc 
 RUN echo "export FLIGHTMARE_PATH=~/catkin_ws/src/flightmare" >> ~/.bashrc
-CMD ["/bin/bash"]
+RUN /bin/bash -c "source ~/RL/bin/activate"
+

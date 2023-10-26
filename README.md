@@ -24,7 +24,22 @@ on the docker container run:
 
 ```
 at this point you should have all the dependencies installed inside the folder `catkin_ws`
-open a new terminal by running on the host:
+
+## build the packege
+
+### ROS build
+1. activate the virtual env
+2. run catkin build
+3. source the new overlay
+
+### python pip build
+ activate the virtual env
+ flightmare/flightlib
+pip install.
+
+## run new terminal 
+
+on the host:
 ```
 docker exec -it flightmare_container bash 
 ```
