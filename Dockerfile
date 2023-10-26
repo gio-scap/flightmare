@@ -49,7 +49,7 @@ RUN apt-get update && apt-get install -y python-pip \
     && /root/RL/bin/pip install wheel \
     && /root/RL/bin/pip install  protobuf==3.6.1\
     setuptools\
-    tensorflow==1.14.0
+    tensorflow
 RUN /root/RL/bin/pip install scikit-build\
     setuptools_scm \ 
     && root/RL/bin/pip install setuptools\
