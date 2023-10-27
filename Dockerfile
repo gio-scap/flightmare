@@ -39,17 +39,17 @@ RUN apt-get update && apt-get install -y \
 RUN apt-get update && apt-get install -y python-pip \
     python-catkin-tools\
     && pip install catkin-tools\
-    && pip3 install catkin_pkg\
+    && pip3 install catkin_pkg
 
 
-    # Create a virtual environment and activate it, install dependencies 
+# Create a virtual environment and activate it, install dependencies 
 
-    RUN python3 -m venv /root/RL \
+RUN python3 -m venv /root/RL \
     && /root/RL/bin/pip install --upgrade pip\
     && /root/RL/bin/pip install wheel \
     && /root/RL/bin/pip install  protobuf==3.6.1\
-    setuptools\
-    tensorflow
+    setuptools
+# tensorflow should be 1.14 
 RUN /root/RL/bin/pip install scikit-build\
     setuptools_scm \ 
     && root/RL/bin/pip install setuptools\
